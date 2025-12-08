@@ -18,11 +18,16 @@ import FunctionsList from './pages/FunctionsList';
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
+      // Close mobile sidebar when resizing to desktop
+      if (window.innerWidth >= 1024) {
+        setIsMobileSidebarOpen(false);
+      }
     };
 
     window.addEventListener('resize', handleResize);
@@ -30,6 +35,32 @@ function App() {
   }, []);
 
   const isDesktop = windowWidth >= 1024;
+
+  // Close mobile sidebar when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!isDesktop && isMobileSidebarOpen) {
+        const sidebar = document.querySelector('.sidebar');
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+
+        if (
+          sidebar &&
+          !sidebar.contains(event.target) &&
+          hamburgerMenu &&
+          !hamburgerMenu.contains(event.target)
+        ) {
+          setIsMobileSidebarOpen(false);
+        }
+      }
+    };
+
+    if (isMobileSidebarOpen && !isDesktop) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isMobileSidebarOpen, isDesktop]);
 
   // Handle sidebar collapse and main content margin
   useEffect(() => {
@@ -49,15 +80,33 @@ function App() {
     <Router>
       <div className="App" dir="rtl" lang="fa">
         {/* Global Header - Mobile only */}
-        {!isDesktop && <MobileHeader />}
-
-        {/* Global Sidebar - Desktop only */}
-        {isDesktop && (
-          <Sidebar
-            isCollapsed={isSidebarCollapsed}
-            onToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+        {!isDesktop && (
+          <MobileHeader
+            onMenuClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
           />
         )}
+
+        {/* Mobile Overlay */}
+        {!isDesktop && (
+          <div
+            className={`mobile-sidebar-overlay ${
+              isMobileSidebarOpen ? 'overlay-visible' : ''
+            }`}
+            onClick={() => setIsMobileSidebarOpen(false)}
+          />
+        )}
+
+        {/* Global Sidebar - Desktop and Mobile */}
+        <Sidebar
+          isCollapsed={isDesktop ? isSidebarCollapsed : false}
+          onToggle={
+            isDesktop
+              ? () => setIsSidebarCollapsed(!isSidebarCollapsed)
+              : () => setIsMobileSidebarOpen(false)
+          }
+          isMobile={!isDesktop}
+          isMobileOpen={isMobileSidebarOpen}
+        />
 
         {/* Main Content */}
         <main className="main-content">

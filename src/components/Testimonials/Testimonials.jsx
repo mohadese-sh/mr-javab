@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Testimonials.css';
 
 const Testimonials = () => {
+  const navigate = useNavigate();
   const leftColumnRef = useRef(null);
   const rightColumnRef = useRef(null);
 
@@ -69,7 +71,10 @@ const Testimonials = () => {
               نظرات دیگران را بخوانید و با اطمینان ثبت نام کنید.
             </p>
           </div>
-          <div className="subscribe-btn-container">
+          <div
+            className="subscribe-btn-container"
+            onClick={() => navigate('/plans')}
+          >
             <span className="subscribe-text">خرید اشتراک</span>
             <img
               src="/icons/angle-left.svg"

@@ -1,7 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 import './Sidebar.css';
 
-const Sidebar = ({ isCollapsed, onToggle }) => {
+const Sidebar = ({
+  isCollapsed,
+  onToggle,
+  isMobile = false,
+  isMobileOpen = false,
+}) => {
   const location = useLocation();
 
   const navItems = {
@@ -53,7 +58,11 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
   };
 
   return (
-    <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+    <aside
+      className={`sidebar ${isCollapsed ? 'collapsed' : ''} ${
+        isMobile ? 'mobile-sidebar' : ''
+      } ${isMobile && isMobileOpen ? 'mobile-sidebar-open' : ''}`}
+    >
       <div className="sidebar-header">
         <div className="logo-container">
           <img src="/images/logo.svg" alt="MRJAVAB Logo" className="logo-img" />
@@ -82,6 +91,11 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
                   key={index}
                   to={item.path}
                   className={`nav-item ${item.active ? 'active' : ''}`}
+                  onClick={() => {
+                    if (isMobile) {
+                      onToggle();
+                    }
+                  }}
                 >
                   <img
                     src={`/${item.icon}`}

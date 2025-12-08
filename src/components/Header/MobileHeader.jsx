@@ -1,9 +1,14 @@
 import './MobileHeader.css';
 
-const MobileHeader = () => {
+const MobileHeader = ({ onMenuClick }) => {
   return (
     <header className="mobile-header">
-      <button className="hamburger-menu" id="hamburgerMenu">
+      <button
+        className="hamburger-menu"
+        id="hamburgerMenu"
+        onClick={onMenuClick}
+        aria-label="Toggle menu"
+      >
         <span></span>
         <span></span>
         <span></span>
