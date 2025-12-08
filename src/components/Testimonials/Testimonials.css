@@ -1,0 +1,254 @@
+/* Testimonials Section */
+.testimonials {
+  background: #101566;
+  padding: 25px 105px;
+  margin-bottom: 80px;
+}
+
+.testimonials-container {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonials-left {
+  width: 373px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.testimonials-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.testimonials-title {
+  color: #f6f7f9;
+  text-align: right;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.title-highlight {
+  color: #fff;
+}
+
+.testimonials-subtitle {
+  color: #f6f7f9;
+  text-align: right;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  margin: 0;
+}
+
+.subscribe-btn-container {
+  display: flex;
+  height: 52px;
+  width: fit-content;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #0268ff 0%, #0256d4 100%);
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.subscribe-btn-container:hover {
+  opacity: 0.9;
+}
+
+.subscribe-text {
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.subscribe-arrow {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.testimonials-right {
+  flex: 1;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px 40px;
+  align-items: start;
+}
+
+.testimonials-column {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.testimonials-column-left {
+  transform: translateY(40px);
+}
+
+.testimonials-column-right {
+  transform: translateY(-40px);
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 16px;
+  background: #f6f7f9;
+}
+
+.testimonial-name {
+  color: #101566;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  margin: 0;
+}
+
+.testimonial-text {
+  color: #627a95;
+  text-align: right;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive Design - Tablet (640px - 1023px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .testimonials {
+    padding: 25px 0;
+    box-sizing: border-box;
+  }
+
+  .testimonials-container {
+    flex-direction: column;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .testimonials-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .testimonials-text-container {
+    width: 373px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .subscribe-btn-container {
+    width: 100%;
+    max-width: 373px;
+  }
+
+  .testimonials-right {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .testimonials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    width: 100%;
+  }
+
+  .testimonials-column-left,
+  .testimonials-column-right {
+    transform: none;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+  }
+
+  .testimonials-column-left:active,
+  .testimonials-column-right:active {
+    cursor: grabbing;
+  }
+
+  .testimonials-column-left::-webkit-scrollbar,
+  .testimonials-column-right::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  .testimonial-card {
+    flex-shrink: 0;
+    width: 373px;
+    max-width: 373px;
+  }
+}
+
+/* Responsive Design - Mobile (0px - 639px) */
+@media (max-width: 639px) {
+  .testimonials {
+    padding: 50px 0;
+  }
+
+  .testimonials-container {
+    flex-direction: column;
+    padding: 0 15px;
+  }
+
+  .testimonials-left {
+    width: 100%;
+  }
+
+  .testimonials-title {
+    font-size: 32px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .testimonials-column-left,
+  .testimonials-column-right {
+    transform: none;
+  }
+
+  .subscribe-btn-container {
+    width: 100%;
+  }
+}

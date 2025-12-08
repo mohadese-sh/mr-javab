@@ -1,0 +1,85 @@
+/* Yekan Bakh FaNum Font */
+@font-face {
+  font-family: 'Yekan Bakh';
+  src: url('/fonts/YekanBakh-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yekan Bakh';
+  src: url('/fonts/YekanBakh-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yekan Bakh';
+  src: url('/fonts/YekanBakh-ExtraBold.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  direction: rtl;
+}
+
+body {
+  font-family: 'Yekan Bakh', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  direction: rtl;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+  text-align: right;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  direction: rtl;
+}
+
+input,
+textarea,
+select {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Main Content */
+.main-content {
+  margin-right: 280px;
+  min-height: 100vh;
+}
+
+/* Responsive Design - Hide sidebar on tablet and mobile (below 1024px) */
+@media (max-width: 1023px) {
+  .main-content {
+    margin-right: 0;
+  }
+
+  .hero {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-top: 86px;
+  }
+
+  .hero-content {
+    width: 100%;
+    margin: 0;
+    padding: 16px 8px;
+    border-radius: 0;
+  }
+}

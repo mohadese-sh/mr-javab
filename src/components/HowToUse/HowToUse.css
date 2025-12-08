@@ -1,0 +1,305 @@
+/* How to Use Section */
+.how-to-use {
+  overflow: visible;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  direction: rtl;
+}
+
+.section-title {
+  color: #222;
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  margin-bottom: 4px;
+}
+
+.section-subtitle {
+  color: rgba(54, 67, 109, 0.7);
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.step-card {
+  width: 100%;
+  min-height: fit-content;
+  overflow: visible;
+}
+
+.step-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  overflow: visible;
+}
+
+.step-reverse .step-content {
+  flex-direction: row-reverse;
+}
+
+.step-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  align-items: flex-start;
+}
+
+.step-reverse .step-left {
+  align-items: flex-end;
+}
+
+.step-number {
+  display: flex;
+  width: 29px;
+  padding: 4px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #0268ff 0%, #0256d4 100%);
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+}
+
+.step-title {
+  color: #121f2f;
+  text-align: right;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.step-description {
+  color: #667085;
+  text-align: right;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+}
+
+.step-right {
+  flex-shrink: 0;
+  overflow: visible;
+  padding: 20px;
+}
+
+.step-icon-box {
+  width: 240.317px;
+  height: 184.243px;
+  transform: rotate(9.731deg);
+  border-radius: 21.362px;
+  background: #fff;
+  box-shadow: 0 2.136px 13.351px 10.681px rgba(67, 53, 167, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.step-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive Design - Tablet (640px - 1023px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .how-to-use {
+    padding: 32px;
+  }
+
+  .section-title {
+    overflow: hidden;
+    color: #222;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .section-subtitle {
+    color: rgba(54, 67, 109, 0.7);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .steps-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .step-title {
+    color: #121f2f;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.36px;
+    text-transform: capitalize;
+  }
+
+  .step-description {
+    color: #667085;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12px;
+  }
+
+  .step-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .step-card.step-reverse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .step-content {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-reverse .step-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .step-reverse .step-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .step-icon-box {
+    width: 180px;
+    height: 138px;
+  }
+}
+
+/* Responsive Design - Mobile (0px - 639px) */
+@media (max-width: 639px) {
+  .how-to-use {
+    padding: 32px;
+  }
+
+  .section-title {
+    overflow: hidden;
+    color: #222;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .section-subtitle {
+    color: rgba(54, 67, 109, 0.7);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .steps-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .step-title {
+    color: #121f2f;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.36px;
+    text-transform: capitalize;
+  }
+
+  .step-description {
+    color: #667085;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12px;
+  }
+
+  .step-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .step-card.step-reverse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .step-content {
+    flex-direction: column !important;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-reverse .step-content {
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-left {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .step-reverse .step-left {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .step-icon-box {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    aspect-ratio: 240 / 184;
+  }
+}
