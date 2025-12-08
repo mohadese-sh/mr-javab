@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import './Hero.css';
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section className="hero">
       <div className="hero-content">
@@ -20,7 +22,10 @@ const Hero = () => {
           <p className="cta-text">
             حل معادلات پیچیده با آموزش گام‌به‌گام در اشتراک پرو.
           </p>
-          <div className="upgrade-btn-container">
+          <div
+            className="upgrade-btn-container"
+            onClick={() => navigate('/plans')}
+          >
             <span className="upgrade-text">ارتقا بده!</span>
           </div>
         </div>

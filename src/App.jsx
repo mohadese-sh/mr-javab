@@ -9,7 +9,7 @@ import Footer from './components/Footer/Footer';
 
 // Pages
 import Home from './pages/Home';
-import ProblemSolver from './pages/ProblemSolver';
+import Plans from './pages/Plans';
 import PdfHelper from './pages/PdfHelper';
 import QuizMaker from './pages/QuizMaker';
 import BookChat from './pages/BookChat';
@@ -63,6 +63,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/plans" element={<Plans />} />
             <Route path="/problem-solver" element={<Home />} />
             <Route path="/pdf-helper" element={<PdfHelper />} />
             <Route path="/quiz-maker" element={<QuizMaker />} />
