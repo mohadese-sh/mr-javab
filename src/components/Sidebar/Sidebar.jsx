@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Sidebar.css';
 
 const Sidebar = ({
@@ -8,6 +8,7 @@ const Sidebar = ({
   isMobileOpen = false,
 }) => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = {
     'منو اصلی': [
@@ -116,8 +117,8 @@ const Sidebar = ({
             alt="User Avatar"
             className="user-avatar"
           />
-          <div className="user-details">
-            <p className="user-name">وب ملل</p>
+          <div className="user-details" onClick={() => navigate('/login')}>
+            <p className="user-name">ورود | ثبت نام</p>
             <p className="user-email">sample@gmail.com</p>
           </div>
         </div>

@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
 import './styles/index.css';
 
 // Global Components
@@ -15,8 +20,11 @@ import QuizMaker from './pages/QuizMaker';
 import BookChat from './pages/BookChat';
 import Summarizer from './pages/Summarizer';
 import FunctionsList from './pages/FunctionsList';
+import Login from './pages/Login';
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/login';
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -77,26 +85,26 @@ function App() {
   }, [isSidebarCollapsed, isDesktop]);
 
   return (
-    <Router>
-      <div className="App" dir="rtl" lang="fa">
-        {/* Global Header - Mobile only */}
-        {!isDesktop && (
-          <MobileHeader
-            onMenuClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
-          />
-        )}
+    <div className="App" dir="rtl" lang="fa">
+      {/* Global Header - Mobile only */}
+      {!isDesktop && !isLoginPage && (
+        <MobileHeader
+          onMenuClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
+        />
+      )}
 
-        {/* Mobile Overlay */}
-        {!isDesktop && (
-          <div
-            className={`mobile-sidebar-overlay ${
-              isMobileSidebarOpen ? 'overlay-visible' : ''
-            }`}
-            onClick={() => setIsMobileSidebarOpen(false)}
-          />
-        )}
+      {/* Mobile Overlay */}
+      {!isDesktop && !isLoginPage && (
+        <div
+          className={`mobile-sidebar-overlay ${
+            isMobileSidebarOpen ? 'overlay-visible' : ''
+          }`}
+          onClick={() => setIsMobileSidebarOpen(false)}
+        />
+      )}
 
-        {/* Global Sidebar - Desktop and Mobile */}
+      {/* Global Sidebar - Desktop and Mobile */}
+      {!isLoginPage && (
         <Sidebar
           isCollapsed={isDesktop ? isSidebarCollapsed : false}
           onToggle={
@@ -107,24 +115,33 @@ function App() {
           isMobile={!isDesktop}
           isMobileOpen={isMobileSidebarOpen}
         />
+      )}
 
-        {/* Main Content */}
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/plans" element={<Plans />} />
-            <Route path="/problem-solver" element={<Home />} />
-            <Route path="/pdf-helper" element={<PdfHelper />} />
-            <Route path="/quiz-maker" element={<QuizMaker />} />
-            <Route path="/book-chat" element={<BookChat />} />
-            <Route path="/summarizer" element={<Summarizer />} />
-            <Route path="/functions-list" element={<FunctionsList />} />
-          </Routes>
+      {/* Main Content */}
+      <main className={`main-content ${isLoginPage ? 'login-page-main' : ''}`}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/plans" element={<Plans />} />
+          <Route path="/problem-solver" element={<Home />} />
+          <Route path="/pdf-helper" element={<PdfHelper />} />
+          <Route path="/quiz-maker" element={<QuizMaker />} />
+          <Route path="/book-chat" element={<BookChat />} />
+          <Route path="/summarizer" element={<Summarizer />} />
+          <Route path="/functions-list" element={<FunctionsList />} />
+        </Routes>
 
-          {/* Global Footer */}
-          <Footer />
-        </main>
-      </div>
+        {/* Global Footer */}
+        {!isLoginPage && <Footer />}
+      </main>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
